@@ -51,57 +51,68 @@ Link.prototype.display = function () {
     var currNode = this.head.next;
     while (currNode) {
         console.log(currNode.el);
-        currNode = currNode.next;
+         currNode = currNode.next;
+        // var arrs =[];
+        // for(let arr of arrs){
+        //     arr=currNode.el;
+        // }
+        // console.log(arrs);
+        // return arrs;
     }
 }
 
-
-//5.append      创建一个节点
-    Link.prototype.append = function(){
-
+//在链表的最后插入一个结点
+Link.prototype.attach = function(el){
+    var currNode = this.head;
+    while(currNode.next != null){
+        currNode=currNode.next;
     }
+    let newnode = new Node(el);
+    currNode.next=newnode;
+    newnode.next=null;
+}
 
 
 
 
 
-//测试函数实用性
-// var link = new Link();
-// link.insert(1,'head');
-// link.insert(3,1);
-// link.display();
+let link = new Link();
+link.insert(1,'head');
+link.attach(2);
+link.attach('hello world')
+link.display();
 
 
 
 
 
 
-//设置链表中要存储的数字
-    let number1 = 342;
-    let number2 = 465;
-    const number1_one = Math.floor(number1/1%10);
-    const number1_ten = Math.floor(number1/10%10);
-    const number1_thousand = Math.floor(number1/100%10);
-    const number2_one = Math.floor(number2/1%10);
-    const number2_ten = Math.floor(number2/10%10);
-    const number2_thousand = Math.floor(number2/100%10);
-    l1 = new Link();
-    l2 = new Link();
-    l1.insert(number1_one,'head');
-    l1.insert(number1_ten,number1_one);
-    l1.insert(number1_thousand,number1_ten);
-    l2.insert(number2_one,'head');
-    l2.insert(number2_ten,number2_one);
-    l2.insert(number2_thousand,number2_ten);
+// //设置链表中要存储的数字
+//     let number1 = 342;
+//     let number2 = 465;
+//     const number1_one = Math.floor(number1/1%10);
+//     const number1_ten = Math.floor(number1/10%10);
+//     const number1_thousand = Math.floor(number1/100%10);
+//     const number2_one = Math.floor(number2/1%10);
+//     const number2_ten = Math.floor(number2/10%10);
+//     const number2_thousand = Math.floor(number2/100%10);
+//     l1 = new Link();
+//     l2 = new Link();
+//     l1.insert(number1_one,'head');
+//     l1.insert(number1_ten,number1_one);
+//     l1.insert(number1_thousand,number1_ten);
+//     l2.insert(number2_one,'head');
+//     l2.insert(number2_ten,number2_one);
+//     l2.insert(number2_thousand,number2_ten);
 
-    //定义函数
-    var addTwoNumbers = function(l1,l2){
-        var out_l3 = new Link();
+//     //定义函数
+//     var addTwoNumbers = function(l1,l2){
+//         var out_l3 = new Link();
         
-        out_l3.insert((l1.find(number1_one).el)+(l2.find(number2_one).el),'head')
-        l1.display();
-        l2.display();
-        out_l3.display();
-    }
+//         out_l3.insert((l1.find(number1_one).el)+(l2.find(number2_one).el),'head')
+//         l1.display();
+//         l2.display();
+//         out_l3.display();
+//     }
 
-    addTwoNumbers(l1,l2);
+//     addTwoNumbers(l1,l2);
